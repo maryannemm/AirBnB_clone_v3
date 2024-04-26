@@ -67,7 +67,30 @@ test_file_storage.py'])
             self.assertTrue(len(func[1].__doc__) >= 1,
                             "{:s} method needs a docstring".format(func[0]))
 
+    def test_get_method(self):
+        # Test retrieving an existing object
+        state_id = 'existing_state_id'  # Replace with an actual existing state ID
+        state = self.storage.get(State, state_id)
+        self.assertIsNotNone(state)
+        self.assertEqual(state.id, state_id)
 
+        # Test retrieving a non-existing object
+        non_existing_state_id = 'non_existing_state_id'
+        state = self.storage.get(State, non_existing_state_id)
+        self.assertIsNone(state)
+
+    def test_count_method(self):
+        # Test counting all objects
+        all_count = self.storage.count()
+        self.assertTrue(all_count > 0)
+
+        # Test counting objects of a specific class
+        state_count = self.storage.count(State)
+        self.assertTrue(state_count > 0)
+
+        # Test counting objects of another class
+        city_count = self.storage.count(City)
+        self.assertTrue(city_count == 0) 
 class TestFileStorage(unittest.TestCase):
     """Test the FileStorage class"""
     @unittest.skipIf(models.storage_t == 'db', "not testing file storage")

@@ -24,7 +24,7 @@ class DBStorage:
     """interaacts with the MySQL database"""
     __engine = None
     __session = None
-
+    
     def __init__(self):
         """Instantiate a DBStorage object"""
         HBNB_MYSQL_USER = getenv('HBNB_MYSQL_USER')
@@ -58,6 +58,20 @@ class DBStorage:
     def save(self):
         """commit all changes of the current database session"""
         self.__session.commit()
+    def get(self, cls, id):
+        """Retrieve one object"""
+        return self.__session.query(cls).filter_by(id=id).first()
+
+    def count(self, cls=None):
+        """Count the number of objects in storage"""
+        if cls:
+            return self.__session.query(cls).count()
+        else:
+            total_count = 0
+            for cls in self.__session._decl_class_registry.values():
+                if hasattr(cls, '__tablename__'):
+                    total_count += self.__session.query(cls).count()
+            return total_count
 
     def delete(self, obj=None):
         """delete from the current database session obj if not None"""
