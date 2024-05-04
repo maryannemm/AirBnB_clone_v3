@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../static/styles/4-common.css?{{ cache_id }}" />
+    <link rel="stylesheet" type="text/css" href="../static/styles/3-header.css?{{ cache_id }}" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="../static/scripts/101-hbnb.js?{{ cache_id }}"></script>
+</head>
+<body>
+    <!-- Your HTML content here -->
+    <header>
+        <div id="api_status" class="available"></div>
+    </header>
+    <ul class="amenities">
+        <li><input type="checkbox" data-id="1" data-name="Wifi">Wifi</li>
+        <li><input type="checkbox" data-id="2" data-name="TV">TV</li>
+        <!-- Add more amenities if needed -->
+    </ul>
+    <div class="amenities">
+        <h4>Selected Amenities:</h4>
+        <p id="selected-amenities"></p>
+    </div>
+    <section class="places"></section>
+    <button id="filter-btn">Filter</button>
+    <div class="locations">
+        <h4>Selected Locations:</h4>
+        <p id="selected-locations"></p>
+    </div>
+    <ul class="states">
+        <li><input type="checkbox" data-id="1" data-name="California">California</li>
+        <li><input type="checkbox" data-id="2" data-name="New York">New York</li>
+        <!-- Add more states if needed -->
+    </ul>
+    <ul class="cities">
+        <li><input type="checkbox" data-id="1" data-name="San Francisco">San Francisco</li>
+        <li><input type="checkbox" data-id="2" data-name="Los Angeles">Los Angeles</li>
+        <!-- Add more cities if needed -->
+    </ul>
+    <div class="reviews">
+        <h2>Reviews <span id="toggle-reviews">show</span></h2>
+        <ul id="reviews-list"></ul>
+    </div>
+</body>
+</html>
+

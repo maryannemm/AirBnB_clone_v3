@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../static/styles/4-common.css?{{ cache_id }}" />
+    <link rel="stylesheet" type="text/css" href="../static/styles/3-header.css?{{ cache_id }}" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="../static/scripts/2-hbnb.js?{{ cache_id }}"></script>
+</head>
+<body>
+    <!-- Your HTML content here -->
+    <header>
+        <div id="api_status" class="available"></div>
+    </header>
+    <ul class="amenities">
+        <li><input type="checkbox" data-id="1" data-name="Wifi">Wifi</li>
+        <li><input type="checkbox" data-id="2" data-name="TV">TV</li>
+        <!-- Add more amenities if needed -->
+    </ul>
+    <div class="amenities">
+        <h4>Selected Amenities:</h4>
+        <p id="selected-amenities"></p>
+    </div>
+</body>
+</html>
+
